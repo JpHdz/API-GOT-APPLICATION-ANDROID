@@ -1,0 +1,18 @@
+extends baseEmail
+
+block content
+
+  p Hi #{firstName},
+  p Welcome to our GOT Quiz App
+  p We are happy to see you joining our community. Have fun and remember Winter Is Comming! ❄️⚔️🐲
+  table.btn.btn-primary(role='presentation', border='0', cellpadding='0', cellspacing='0')
+    tbody
+      tr
+        td(align='left')
+          table(role='presentation', border='0', cellpadding='0', cellspacing='0')
+            tbody
+              tr
+                td
+                  a(href=`#`, target='_blank') Go to App
+  p If you need any help while using the app, please don't hesitate to contact us!
+  p - GOT Quiz Team
