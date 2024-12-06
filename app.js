@@ -8,7 +8,9 @@ const compression = require('compression');
 const cors = require('cors');
 
 const globalErrorHandler = require('./utils/appError');
-
+const usersRouter = require('./routes/userRoutes');
+const questionsRouter = require('./routes/questionRoutes');
+const categoriesRouter = require('./routes/categoryRoutes');
 const AppError = require('./utils/appError');
 
 const app = express();
@@ -44,6 +46,10 @@ app.use((req, res, next) => {
   // console.log(req.cookies);
   next();
 });
+
+app.use('/api/v1/users', usersRouter);
+app.use('/api/v1/questions', questionsRouter);
+app.use('/api/v1/categories', categoriesRouter);
 
 app.use('*', (req, res, next) => {
   next(new AppError(`Can't find ${req.originalUrl} on the server!`, 404));
